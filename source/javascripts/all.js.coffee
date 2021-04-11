@@ -34,10 +34,7 @@ setHash = do ->
     c1 = $('#main input').val()
     c2 = $('#second input').val()
     return unless c1
-    hash = if $('body').hasClass('compare') and c2 then "#{c1}/#{c2}" else c1
-    input = $(@).val()
-    hsv = ncs2hsv input
-    hash = hsv
+    hash = "KEKS"
     window.location.hash = hash
   (time = 1000)->
     clearTimeout timer
