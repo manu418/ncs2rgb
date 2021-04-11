@@ -35,6 +35,9 @@ setHash = do ->
     c2 = $('#second input').val()
     return unless c1
     hash = if $('body').hasClass('compare') and c2 then "#{c1}/#{c2}" else c1
+    input = $(@).val()
+    hsv = ncs2hsv input
+    hash = hsv
     window.location.hash = hash
   (time = 1000)->
     clearTimeout timer
@@ -53,7 +56,6 @@ $.fn.setColor = ->
     $sheet
     .toggleClass('dark', hsv[2] < 60)
     .css('background-color': "##{hex.join('')}")
-    window.location.hash = rgb
     setHash()
   catch e
     $warning.show()
