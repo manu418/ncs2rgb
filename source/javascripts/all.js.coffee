@@ -50,11 +50,10 @@ $.fn.setColor = ->
     hsv = ncs2hsv input
     rgb = hsv2rgb.apply window, hsv
     hex = dec2hex.apply(window, rgb)
-    $warning = rgb
     $sheet
     .toggleClass('dark', hsv[2] < 60)
     .css('background-color': "##{hex.join('')}")
-    $warning.show()
+    window.location.hash = rgb
     setHash()
   catch e
     $warning.show()
